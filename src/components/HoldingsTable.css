@@ -21,6 +21,7 @@
 }
 
 .ht-title {
+  color: var(--text);
   font-size: 19px;
   font-weight: 800;
 }
@@ -155,10 +156,45 @@
 }
 
 .ht-checkbox {
+  appearance: none;
+  display: inline-grid;
+  place-content: center;
   width: 16px;
   height: 16px;
-  accent-color: #3d35ff;
+  border: 2px solid var(--line-strong);
+  border-radius: 2px;
+  background: var(--surface);
   cursor: pointer;
+}
+
+.ht-checkbox::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  transform: scale(0);
+  background: #ffffff;
+  clip-path: polygon(14% 44%, 0 62%, 38% 100%, 100% 20%, 82% 6%, 36% 66%);
+}
+
+.ht-checkbox:checked {
+  border-color: #3d35ff;
+  background: #3d35ff;
+}
+
+.ht-checkbox:checked::before {
+  transform: scale(1);
+}
+
+.ht-checkbox:indeterminate {
+  border-color: #3d35ff;
+  background: #3d35ff;
+}
+
+.ht-checkbox:indeterminate::before {
+  width: 8px;
+  height: 2px;
+  transform: scale(1);
+  clip-path: none;
 }
 
 .ht-asset {
